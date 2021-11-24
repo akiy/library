@@ -1,0 +1,52 @@
+*, *::before, *::after {
+	box-sizing: border-box;
+}
+
+* {
+	margin: 0;
+}
+
+html, body {
+	height: 100%;
+}
+
+body {
+	line-height: 1.5;
+	-webkit-font-smoothing:  antialiased;
+}
+
+img, picture, video, canvas, svg {
+	display: block;
+	max-width: 100%;
+}
+
+
+p, h1, h2, h3, h4, h5, h6 {
+	overflow-wrap: break-word;
+}
+
+#root, #__next {
+	isolation: isolate;
+}
+/*---------------*/
+
+html {
+	font-size: 16px;
+}
+
+body {
+	color: #333;
+	font-family: sans-serif;
+	background-color: #fff;
+}
+
+
+.container {
+	width: 90%;
+	max-width: 1110px;
+	margin: 0 auto;
+}
+
+.author-input, .title-input, .page-input {
+	padding: .5rem 1rem;
+}
