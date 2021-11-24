@@ -15,22 +15,38 @@ function Book(author, title, numberOfPages) {
 
 function addBookToLibrary(e) {
 	e.preventDefault();
-	let author = document.querySelector('.author-input').value.trim();
-	let title = document.querySelector('.title-input').value.trim();
-	let pages = document.querySelector('.page-input').value.trim();
+	let author = document.querySelector('.author-input');
+	let title = document.querySelector('.title-input');
+	let pages = document.querySelector('.page-input');
 
-	if (author && title && pages) {
+	if (author.value.length && title.value.length && pages.value.length) {
 		myLibrary.push(new Book(author, title, pages));
 
-		libraryList.innerHTML += `
-				<article>
-				<p>Author: ${author}</p>
-				<p>Title: ${title}</p>
-				<p>Number of pages: ${pages}</p>
-				<button class="remove-book">remove</button>
-				</article>`;
+		if (myLibrary.length == 1) {
+			
+			libraryList.innerHTML = `
+					<article>
+					<p>Author: ${author.value}</p>
+					<p>Title: ${title.value}</p>
+					<p>Number of pages: ${pages.value}</p>
+					<button class="remove-book">remove</button>
+					</article>`;			
+		} else {
 
+			libraryList.innerHTML += `
+					<article>
+					<p>Author: ${author.value}</p>
+					<p>Title: ${title.value}</p>
+					<p>Number of pages: ${pages.value}</p>
+					<button class="remove-book">remove</button>
+					</article>`;
+		}
+
+		author.value = "";
+		title.value = "";
+		pages.value = "";
 	}
+
 	document.querySelectorAll('.remove-book').forEach(book => {
 		book.addEventListener('click', deleteBookFromLibrary)
 	});
@@ -60,11 +76,19 @@ function showBooksFromLibrary() {
 );
 }
 
+function hasBooks() {
+	return myLibrary.length > 0;
+}
+
 function deleteBookFromLibrary(e) {
 	let index = e.target.parentNode.getAttribute('data-index');
 	myLibrary.splice(index, 1);
 	e.target.parentNode.remove();
 	console.log(myLibrary);
+
+	if (!hasBooks()) {
+		libraryList.innerHTML = "<p>There aren't any books in the library.</p>"
+	}
 
 }
 

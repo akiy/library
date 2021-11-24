@@ -11,7 +11,7 @@ html, body {
 }
 
 body {
-	line-height: 1.5;
+	line-height: 1.6;
 	-webkit-font-smoothing:  antialiased;
 }
 
@@ -35,18 +35,91 @@ html {
 }
 
 body {
-	color: #333;
+	color: #555;
 	font-family: sans-serif;
 	background-color: #fff;
 }
 
+p {
+	margin-bottom: 1rem;
+}
 
 .container {
 	width: 90%;
 	max-width: 1110px;
-	margin: 0 auto;
+	margin: 2rem auto;
 }
 
 .author-input, .title-input, .page-input {
+	color: #495057;
+	font-size: 1rem;
 	padding: .5rem 1rem;
+	display: block;
+	width: 100%;
+	border: 1px solid #ced4da;
+	border-radius: 0.25rem;
+	margin-bottom: 1rem;
+}
+
+/*library section*/
+.library-list {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1rem;
+}
+
+article {
+	background-color: #eee;
+	margin-bottom: 1rem;
+	padding: 2rem;
+	width: 100%
+}
+
+@media screen and (min-width: 567px) {
+	article {
+		width: calc(1 / 2 * 100% - 1rem);
+	}
+}
+
+@media screen and (min-width: 768px) {
+	article {
+		width: calc(1 / 3 * 100% - 1rem);
+	}
+}
+
+label {
+	display: inline-block;
+	margin-bottom: 0.5rem;
+}
+
+.add-new {
+	color: #fff;
+	font-size: 1rem;
+	display: inline-block;
+	cursor: pointer;
+	background-color: #007bff;
+	border:1px solid #007bff;
+	border-radius: 0.25rem;
+	font-weight: 400;
+	text-align: center;
+	white-space: nowrap;
+	vertical-align: middle;
+	padding: 0.375rem 0.75rem;
+	margin-bottom: 1rem;
+}
+
+.remove-book {
+	color: #fff;
+	font-size: 1rem;
+	display: inline-block;
+	cursor: pointer;
+	background-color: #f03a5f;
+	border:1px solid #f03a5f;
+	border-radius: 0.25rem;
+	font-weight: 400;
+	text-align: center;
+	white-space: nowrap;
+	vertical-align: middle;
+	padding: 0.375rem 0.75rem;
+	margin-bottom: 1rem;
 }
